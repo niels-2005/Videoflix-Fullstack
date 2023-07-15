@@ -1,0 +1,94 @@
+.imprint-content-container {
+  min-height: 100vh;
+  max-width: 100vw;
+  background-color: #161616;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 20px;
+  color: white;
+}
+
+li {
+  font-size: 20px;
+  color: white;
+  margin-left: 20px;
+}
+
+h1 {
+  color: white;
+  font-size: 40px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.legal_notice_h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  margin-top: 35px;
+  text-decoration: underline;
+  color: white;
+}
+
+.legal-notice-container-main {
+  display: flex;
+  flex-direction: column;
+  padding: 25px 50px 50px 50px;
+}
+
+.color-legal-notice {
+  color: white;
+}
+
+.legal-notice-font-size {
+  font-size: 20px;
+  color: white;
+}
+
+a {
+  color: #757575;
+}
+
+h3 {
+  color: white;
+}
+
+@media(max-width: 915px){
+  .legal-notice-container-main {
+    padding: 25px;
+  }
+  .legal_notice_h2 {
+    margin-top: 10px;
+  }
+  p {
+    font-size: 18px;
+  }
+
+  li {
+    font-size: 18px;
+  }
+}
+
+@media(max-width: 765px){
+  .legal-notice-container-main {
+    padding: 8px;
+  }
+}
+
+@media(max-width: 500px){
+  p {
+    font-size: 16px;
+  }
+
+  li {
+    font-size: 16px;
+  }
+}
+
+@media(max-width: 375px){
+  .legal_notice_h2 {
+    font-size: 22px;
+  }
+}

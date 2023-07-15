@@ -1,0 +1,97 @@
+<div class="startsite-content-container">
+  <app-headerbar></app-headerbar>
+  <div id="startsite-all-videos">
+    <div class="startsite-filter-container">
+      <h1>All Videos</h1>
+      <input
+        type="text"
+        placeholder="Search Videos"
+        class="searching-input"
+        (input)="onSearchInputChange($event)"
+      />
+    </div>
+    <div class="video-content-container">
+      <div
+        *ngFor="let video of getFilteredVideos()"
+        class="single-video-container"
+        (mouseover)="playVideo(videoElement)"
+        (mouseout)="pauseVideo(videoElement)"
+        (click)="selectVideo(video)"
+      >
+        <video
+          #videoElement
+          [src]="video.video_file_480p"
+          type="video/mp4"
+        ></video>
+        <div class="caption-under-video">
+          <div class="image-title-container">
+            <img src="./assets/img/profil-photo.png" alt="Profile Image" />
+            <h3 class="title-h3">{{ video.title }}</h3>
+          </div>
+          <span class="caption-created-from-created-at">
+            {{ video.created_from }} |
+            {{ getDaysSinceCreation(video.created_at) }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    id="startsite-single-video"
+    *ngIf="selectedVideo"
+    class="single-video-content-container"
+  >
+    <div class="bigger-single-video">
+      <div class="video-container">
+        <video
+          id="videoPlayer"
+          [src]="selectedVideo.video_file_480p"
+          type="video/mp4"
+          controls
+          [attr.autoplay]="true ? '' : null"
+        ></video>
+
+        <div class="quality-control">
+          <label for="videoQuality">Quality:</label>
+          <select id="videoQuality" (change)="changeQuality($event)">
+            <option value="480p">480p</option>
+            <option value="720p">720p</option>
+            <option value="1080p">1080p</option>
+          </select>
+        </div>
+      </div>
+
+      <h3 class="video-title-mobile">{{ selectedVideo.title }}</h3>
+      <div class="selected-video-profile-container">
+        <img src="./assets/img/profil-photo.png" alt="Profile Image" />
+        <p>
+          {{ selectedVideo.created_from }} |
+          {{ getDaysSinceCreation(selectedVideo.created_at) }}
+        </p>
+      </div>
+      <p class="video-description-mobile">{{ selectedVideo.description }}</p>
+    </div>
+    <div class="single-videos-content-right">
+      <div
+        *ngFor="let video of videos"
+        (click)="selectVideo(video)"
+        (mouseover)="playVideo(videoElement)"
+        (mouseout)="pauseVideo(videoElement)"
+        class="single-video-right"
+      >
+        <video
+          [src]="video.video_file_480p"
+          type="video/mp4"
+          #videoElement
+        ></video>
+        <div class="video-informations">
+          <h3>
+            {{ video.title }}
+          </h3>
+          <p>created from: {{ video.created_from }}</p>
+          <p>created at: {{ getDaysSinceCreation(video.created_at) }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

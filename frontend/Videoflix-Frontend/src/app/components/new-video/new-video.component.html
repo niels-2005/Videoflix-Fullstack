@@ -1,0 +1,97 @@
+<div class="new-video-content-container">
+  <app-headerbar></app-headerbar>
+  <div class="content-container">
+    <div class="all-your-videos-container">
+      <button
+        class="red-button-style pos-absolute-button"
+        (click)="switchContainerUploadNewVideo()"
+        id="new-video-button"
+      >
+        New Video
+      </button>
+      <div id="all-your-videos">
+        <h1 class="headline-mobile-font-size">Your Videos</h1>
+        <div
+          *ngFor="let video of videos"
+          class="all-video-info-container"
+          (click)="selectVideo(video)"
+        >
+          <video [src]="video.video_file_720p"></video>
+          <div class="your-videos-informations">
+            <span>{{ video.title }}</span>
+            <span>{{ video.created_at }}</span>
+          </div>
+        </div>
+      </div>
+      <div
+        id="single-video"
+        *ngIf="selectedVideo"
+        class="selected-video-container"
+      >
+        <div class="go-back-container">
+          <button
+            class="red-button-style edit-video-button-pos-abs"
+            (click)="unselectVideo()"
+          >
+            go back
+          </button>
+        </div>
+        <h1>{{ selectedVideo.title }}</h1>
+        <div class="selected-video-hard-infos">
+          <video [src]="selectedVideo.video_file_720p"></video>
+          <div class="selected-video-creation-infos">
+            <span>{{ selectedVideo.created_from }}</span>
+            <span>{{ selectedVideo.created_at }}</span>
+          </div>
+        </div>
+        <p class="change-paragraph">Video Title</p>
+        <input
+          type="text"
+          placeholder="Change Title.."
+          class="selected-video-input"
+          [(ngModel)]="inputTitle"
+        />
+        <p class="change-paragraph">Video Description</p>
+        <textarea
+          placeholder="Change Description.."
+          class="selected-video-textarea"
+          [(ngModel)]="inputDescription"
+        ></textarea>
+        <div class="selected-video-button-container">
+          <button class="red-button-style" (click)="deleteVideo()">
+            delete Video
+          </button>
+          <button class="red-button-style" (click)="updateVideoInformations()">
+            change Video
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="upload-a-new-video-container d-none-mobile"
+      id="upload-new-video"
+    >
+      <h1 class="headline-mobile-font-size">Upload a new Video</h1>
+      <input
+        type="text"
+        class="input-text"
+        placeholder="Title..."
+        [(ngModel)]="title"
+      />
+      <textarea
+        placeholder="Description..."
+        [(ngModel)]="description"
+      ></textarea>
+      <input type="file" class="input-file" (change)="onFileSelected($event)" />
+      <div class="upload-video-mobile-container">
+        <button class="red-button-style" (click)="uploadVideo()">Upload</button>
+        <button
+          class="red-button-style go-back-d-none"
+          (click)="switchContainerBackUploadNewVideo()"
+        >
+          go back
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

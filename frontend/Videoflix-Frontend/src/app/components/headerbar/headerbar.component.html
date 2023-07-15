@@ -1,0 +1,39 @@
+<div class="headerbar">
+  <div class="headerbar-left-content">
+    <span
+      class="videoflix-logo"
+      (click)="navigateToStartsite()"
+      routerLink="/startsite"
+      >Videoflix</span
+    >
+    <div class="routes-container">
+      <a (click)="navigateToStartsite()" routerLink="/startsite">Startsite</a>
+      <a routerLink="/videos">Videos</a>
+      <a routerLink="/imprint-privacypolicy">Imprint & Privacy Policy</a>
+    </div>
+  </div>
+  <div class="headerbar-right-content">
+    <div class="profile-container">
+      <span id="usernameInitial">{{ usernameInitial }}</span>
+    </div>
+    <a (click)="logoutUser()">Logout</a>
+  </div>
+  <nav role="navigation" class="hamburger-menu">
+    <div id="menuToggle">
+      <input type="checkbox" />
+      <span></span>
+      <span></span>
+      <span></span>
+      <ul id="menu">
+        <a (click)="navigateToStartsite()" routerLink="/startsite"
+          ><li>Startsite</li></a
+        >
+        <a routerLink="/videos"><li>Videos</li></a>
+        <a routerLink="/imprint-privacypolicy"
+          ><li>Imprint & Privacy Policy</li></a
+        >
+        <a (click)="logoutUser()"><li>Logout</li></a>
+      </ul>
+    </div>
+  </nav>
+</div>

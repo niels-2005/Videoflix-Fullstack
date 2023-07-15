@@ -1,0 +1,22 @@
+.paragraph-info {
+  color: white;
+  font-size: 24px;
+  text-align: center;
+  margin: 24px 0;
+}
+
+@media(max-width: 800px){
+  h2 {
+    text-align: center;
+    font-size: 40px;
+  }
+  .paragraph-info {
+    font-size: 20px;
+  }
+}
+
+@media(max-width: 380px){
+  h2 {
+    font-size: 32px !important;
+  }
+}

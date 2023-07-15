@@ -1,0 +1,131 @@
+<div class="videoflix-top-container">
+  <span class="videoflix-logo">Videoflix</span>
+  <div class="new-to-videoflix-container" id="new-to-videoflix-content">
+    <span class="new-to-videoflix-span">New to Videoflix?</span>
+    <button
+      class="red-button-style"
+      (click)="
+        switchContainer(
+          'login-content',
+          'new-to-videoflix-content',
+          'sign-up-content',
+          'already-sign-up-content'
+        )
+      "
+    >
+      Sign up
+    </button>
+  </div>
+  <div class="new-to-videoflix-container d-none" id="already-sign-up-content">
+    <span class="new-to-videoflix-span">Already Sign Up?</span>
+    <button
+      class="red-button-style"
+      (click)="
+        switchContainer(
+          'sign-up-content',
+          'already-sign-up-content',
+          'login-content',
+          'new-to-videoflix-content'
+        )
+      "
+    >
+      Log In
+    </button>
+  </div>
+  <div class="new-to-videoflix-container d-none" id="back-to-login-content">
+    <span class="new-to-videoflix-span">Back to Login</span>
+    <button
+      class="red-button-style"
+      (click)="
+        switchContainer(
+          'forgot-your-password-content',
+          'back-to-login-content',
+          'login-content',
+          'new-to-videoflix-content'
+        )
+      "
+    >
+      Log In
+    </button>
+  </div>
+</div>
+
+<div class="position-container">
+  <div class="login-register-container" id="login-content">
+    <div class="sign-up-successful-container" *ngIf="showMessage">
+      <span id="show-sign-up-successful-message">{{ message }}</span>
+    </div>
+    <h2>Log In</h2>
+    <form class="login-form mt-32">
+      <input
+        type="email"
+        name="email"
+        required
+        placeholder="E-Mail"
+        [(ngModel)]="email"
+      />
+      <input
+        type="password"
+        name="password"
+        required
+        placeholder="Password"
+        [(ngModel)]="password"
+      />
+      <span class="show-error-message" id="log-in-error-message"></span>
+      <div class="login-button-container">
+        <button
+          class="red-button-style width-150 width-mobile-button"
+          (click)="logInUser()"
+        >
+          Log In
+        </button>
+        <button
+          class="red-button-style width-150 width-mobile-button"
+          (click)="logInGuest()"
+        >
+          Guest Log In
+        </button>
+      </div>
+      <div class="login-checkbox-help-container">
+        <div class="login-checkbox-container">
+          <input
+            type="checkbox"
+            name="checkbox"
+            [(ngModel)]="rememberMe"
+            (change)="onRememberMeChange()"
+          />
+          <span>Remember me</span>
+        </div>
+        <span
+          class="need-help"
+          (click)="
+            switchContainer(
+              'login-content',
+              'new-to-videoflix-content',
+              'forgot-your-password-content',
+              'back-to-login-content'
+            )
+          "
+          >Need help?</span
+        >
+      </div>
+    </form>
+  </div>
+  <app-signup class="d-none" id="sign-up-content"></app-signup>
+  <app-needhelp class="d-none" id="forgot-your-password-content"></app-needhelp>
+</div>
+
+<div class="area">
+  <ul class="circles">
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+</div>

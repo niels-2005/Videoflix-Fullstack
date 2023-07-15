@@ -1,0 +1,40 @@
+<div class="login-register-container">
+  <h2>Sign Up</h2>
+  <form class="login-form mt-32">
+    <input
+      type="text"
+      name="username"
+      required
+      placeholder="Username"
+      [(ngModel)]="username"
+    />
+    <input
+      type="email"
+      name="email"
+      required
+      placeholder="E-Mail"
+      [(ngModel)]="email"
+    />
+    <input
+      type="password"
+      name="password-one"
+      required
+      placeholder="Password"
+      [(ngModel)]="password"
+    />
+    <input
+      type="password"
+      name="password-again"
+      required
+      placeholder="Confirm Password"
+      [(ngModel)]="confirmPassword"
+    />
+    <span id="sign-up-error-message" class="show-error-message"></span>
+    <button
+      class="red-button-style width-150 width-mobile-button"
+      (click)="signUpUser()"
+    >
+      Sign Up
+    </button>
+  </form>
+</div>
