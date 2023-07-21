@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { AuthenticationService } from 'src/app/services/authentication.service';
 import { StartsiteService } from 'src/app/services/startsite.service';
 import { VideoService } from 'src/app/services/video.service';
 
@@ -19,9 +20,10 @@ export class StartsiteComponent implements OnInit {
 
   selectedVideo: any = null;
 
-  constructor(private startsiteService: StartsiteService, private videoService: VideoService) {}
+  constructor(private startsiteService: StartsiteService, private videoService: VideoService, private tokenService: AuthenticationService) {}
 
   ngOnInit(): void {
+    this.tokenService.checkToken();
     this.subscribeToStartsiteService();
     this.subscribeToVideoService();
     this.videoService.getVideos();
@@ -49,11 +51,13 @@ export class StartsiteComponent implements OnInit {
   }
 
   playVideo(videoElement: HTMLVideoElement) {
+    videoElement.volume = 0;
     videoElement.play();
   }
 
   pauseVideo(videoElement: HTMLVideoElement) {
     videoElement.pause();
+    videoElement.currentTime = 0;
   }
 
   togglePlayPause(videoElement: HTMLVideoElement) {

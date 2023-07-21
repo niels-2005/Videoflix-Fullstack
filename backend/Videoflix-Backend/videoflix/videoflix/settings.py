@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-&c#-sw^^n7-drasvt^efwbuf44ydqz+8*+7007a7mae!wbfmem
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["googlec-videoflix.niels-scholz.com"]
+ALLOWED_HOSTS = ["googlec-videoflix.niels-scholz.com", "127.0.0.1"]
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:4200",
@@ -145,11 +145,11 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = ""
+EMAIL_HOST = "w01e0b54.kasserver.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = ""
-EMAIL_HOST_PASSWORD = ""
+EMAIL_HOST_USER = "mail@niels-scholz.com"
+EMAIL_HOST_PASSWORD = "Pummel1mz!"
 
 
 # Internationalization

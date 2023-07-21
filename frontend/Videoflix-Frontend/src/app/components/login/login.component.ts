@@ -92,13 +92,12 @@ export class LoginComponent implements OnInit  {
 
     if (response.ok) {
       const result = await response.json();
-      console.log(result);
       this.router.navigate(['/startsite']);
       localStorage.setItem('token', result.token);
+      localStorage.setItem('username', result.username);
     } else {
       const errorResponse = await response.json();
       this.showSignUpErrorMessage(errorResponse.error);
-      console.log('Error:', errorResponse.error);
     }
   } catch (error) {
     console.log(error);
@@ -114,7 +113,7 @@ export class LoginComponent implements OnInit  {
 
   logInGuest(){
     this.router.navigate(['/startsite']);
-    localStorage.setItem('token', '92308fbd0561724b7b8f7ce6f0a970ddddaadc00');
+    localStorage.setItem('token', 'b60c4add697cd5d67cba682ab121f0af2ae3494e');
     localStorage.setItem('username', 'Guest');
   }
 }

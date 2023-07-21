@@ -38,7 +38,8 @@ export class HeaderbarComponent implements OnInit {
       });
 
       if (response.ok) {
-        console.log('Logout erfolgreich');
+        localStorage.removeItem('token');
+        localStorage.removeItem('username');
         this.router.navigate(['/login']);
       } else {
         console.error('Fehler beim Ausloggen');
@@ -47,5 +48,4 @@ export class HeaderbarComponent implements OnInit {
       console.error('Fehler beim Ausloggen', error);
     }
   }
-
 }

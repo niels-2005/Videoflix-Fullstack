@@ -12,6 +12,7 @@ import { StartsiteComponent } from './components/startsite/startsite.component';
 import { HeaderbarComponent } from './components/headerbar/headerbar.component';
 import { ImprintPpComponent } from './components/imprint-pp/imprint-pp.component';
 import { NewVideoComponent } from './components/new-video/new-video.component';
+import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NewVideoComponent } from './components/new-video/new-video.component';
     StartsiteComponent,
     HeaderbarComponent,
     ImprintPpComponent,
-    NewVideoComponent
+    NewVideoComponent,
+    ResetpasswordComponent
   ],
   imports: [
     BrowserModule,

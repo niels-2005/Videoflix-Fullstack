@@ -1,4 +1,7 @@
 <div class="login-register-container width-700 width-mobile">
+  <div class="email-sent-success-container" *ngIf="emailSended">
+    <span>An E-Mail has been sent to you</span>
+  </div>
   <h2>Forgot your password?</h2>
   <p class="paragraph-info">
     Don't worry! We will send you an email with the instructions to reset your
@@ -9,9 +12,21 @@
       type="email"
       name="email"
       required
+      [(ngModel)]="email"
       placeholder="E-Mail"
       id="send-email-mobile"
     />
-    <button class="red-button-style width-200 mt-8">Send me the email</button>
+    <span
+      id="fmp-error-message"
+      #fmpErrorMessage
+      class="fmp-error-span-msg"
+    ></span>
+    <button
+      class="red-button-style width-200 mt-8"
+      (click)="sendResetMail()"
+      [disabled]="isButtonDisabled"
+    >
+      Send me the email
+    </button>
   </form>
 </div>

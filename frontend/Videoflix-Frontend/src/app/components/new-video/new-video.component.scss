@@ -193,6 +193,10 @@
 }
 
 @media(max-width: 1215px){
+  .min-width-mobile {
+    min-width: 400px;
+  }
+
   .all-your-videos-container {
     h1 {
       margin-bottom: 16px;
@@ -289,6 +293,12 @@
   }
 }
 
+@media(max-width: 460px){
+  .min-width-mobile {
+    min-width: 320px;
+  }
+}
+
 @media(max-width: 430px){
   .pos-absolute-button {
     right: 10px;
@@ -340,6 +350,9 @@
 }
 
 @media(max-width: 350px){
+  .min-width-mobile {
+    min-width: 300px;
+  }
   .content-container {
     padding: 0 !important;
     padding-top: 6px !important;

@@ -17,6 +17,8 @@
         (mouseover)="playVideo(videoElement)"
         (mouseout)="pauseVideo(videoElement)"
         (click)="selectVideo(video)"
+        (keyup.enter)="selectVideo(video)"
+        tabindex="0"
       >
         <video
           #videoElement
@@ -78,6 +80,8 @@
         (mouseover)="playVideo(videoElement)"
         (mouseout)="pauseVideo(videoElement)"
         class="single-video-right"
+        (keyup.enter)="selectVideo(video)"
+        tabindex="0"
       >
         <video
           [src]="video.video_file_480p"

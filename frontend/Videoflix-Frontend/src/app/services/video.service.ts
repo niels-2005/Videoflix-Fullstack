@@ -21,7 +21,6 @@ export class VideoService {
       .then(result => {
         this.videos = result;
         this.videos$.next(this.videos);
-        console.log(result);
       })
       .catch(error => console.log('error', error));
   }

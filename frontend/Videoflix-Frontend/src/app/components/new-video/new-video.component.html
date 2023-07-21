@@ -1,7 +1,10 @@
 <div class="new-video-content-container">
   <app-headerbar></app-headerbar>
   <div class="content-container">
-    <div class="all-your-videos-container">
+    <div
+      class="all-your-videos-container min-width-mobile"
+      id="min-width-container"
+    >
       <button
         class="red-button-style pos-absolute-button"
         (click)="switchContainerUploadNewVideo()"
@@ -12,7 +15,7 @@
       <div id="all-your-videos">
         <h1 class="headline-mobile-font-size">Your Videos</h1>
         <div
-          *ngFor="let video of videos"
+          *ngFor="let video of filteredVideos"
           class="all-video-info-container"
           (click)="selectVideo(video)"
         >
@@ -84,7 +87,13 @@
       ></textarea>
       <input type="file" class="input-file" (change)="onFileSelected($event)" />
       <div class="upload-video-mobile-container">
-        <button class="red-button-style" (click)="uploadVideo()">Upload</button>
+        <button
+          class="red-button-style"
+          [disabled]="uploading"
+          (click)="uploadVideo()"
+        >
+          {{ uploading ? "loading.." : "Upload" }}
+        </button>
         <button
           class="red-button-style go-back-d-none"
           (click)="switchContainerBackUploadNewVideo()"
