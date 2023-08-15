@@ -21,7 +21,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-&c#-sw^^n7-drasvt^efwbuf44ydqz+8*+7007a7mae!wbfmem"
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -77,7 +76,7 @@ CACHES = {
         "BACKEND": "django_redis.cache.RedisCache",
         "LOCATION": "redis://127.0.0.1:6379/1",
         "OPTIONS": {
-            "PASSWORD": "foobared",
+            "PASSWORD": "",
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         },
         "KEY_PREFIX": "videoflix",
@@ -89,7 +88,7 @@ RQ_QUEUES = {
         "HOST": "127.0.0.1",
         "PORT": 6379,
         "DB": 0,
-        "PASSWORD": "foobared",
+        "PASSWORD": "",
         "DEFAULT_TIMEOUT": 360,
     },
 }
@@ -144,12 +143,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
-EMAIL_HOST = "w01e0b54.kasserver.com"
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = "mail@niels-scholz.com"
-EMAIL_HOST_PASSWORD = "Pummel1mz!"
+
 
 
 # Internationalization
